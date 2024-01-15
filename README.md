@@ -1,3 +1,6 @@
+
+![screenshot](./rottenWiki.png)
+
 # Group-Project-1
 
 Name: RottenWiki

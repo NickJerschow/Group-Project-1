@@ -3,6 +3,7 @@ const youtubeApi = 'AIzaSyAHvcBl8WthZkECx9RMvPLuU6tU3c7I0XM';
 
 var searchBarInput = document.querySelector('#searchBar');
 var imdbTitleBox = document.querySelector('#titlebox');
+var imdbInfoBox = document.querySelector('#imdbData')
 
 function imdbSearch(searchInput) {
     var locQueryUrl = 'http://www.omdbapi.com/?';
@@ -19,7 +20,7 @@ function imdbSearch(searchInput) {
 
             console.log(imdbData);
 
-
+            var imdbArray = [imdbData.Title, imdbData.plot, imdbData.director, imdbData.actors, imdbData.genre, imdbData.year, imdbData.boxoffice, imdbData.Metascore]
             var title = imdbData.Title;
             var metascore = imdbData.Metascore;
             var imdbRating = imdbData.imdbRating;
@@ -29,7 +30,18 @@ function imdbSearch(searchInput) {
             console.log(imdbRating);
 
             youtubeSearch(title);
+            printImdb(imdbArray);
         })
+}
+
+function printImdb(data) {
+    var divBox = document.createElement('div');
+
+    var titleEl = document.createElement('h1');
+    var plotEl = document.createElement('p');
+
+    divBox.append
+
 }
 
 function youtubeSearch (movieTitle) {
@@ -47,13 +59,13 @@ function youtubeSearch (movieTitle) {
             console.log(video)
 
             var videoId = video.items[0].id.videoId;
-            var iframe = document.createElement("iframe");
-            iframe.src = "https://www.youtube.com/embed/" + videoId;
-            iframe.width = "640";
-            iframe.height = "360";
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + videoId;
+            iframe.width = '640';
+            iframe.height = '360';
 
-            var container = document.getElementById("videoContainer");
-            container.innerHTML = "";
+            var container = document.getElementById('videoContainer');
+            container.innerHTML = '';
             container.appendChild(iframe);
 
         })
